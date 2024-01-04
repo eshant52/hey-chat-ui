@@ -11,7 +11,7 @@ import markChat from "./icons/mark_chat.svg";
 import mic from "./icons/mic.svg";
 import moreVert from "./icons/more_vert.svg";
 import noSound from "./icons/no_sound.svg";
-import notificationOff from "./icons/notification_off.svg";
+import notificationOff from "./icons/notifications_off.svg";
 import personAdd from "./icons/person_add.svg";
 import person from "./icons/person.svg";
 import photoCamera from "./icons/photo_camera.svg";
