@@ -26,6 +26,9 @@ export default function NavLayout() {
         <div className="flex justify-center py-5">
           <Icon src={icons.groups} />
         </div>
+        <div className="flex justify-center py-5">
+          <Icon src={icons.block} />
+        </div>
       </div>
       <div className="flex justify-center py-4">
         <Icon src={icons.setting} alt="App setting"/>

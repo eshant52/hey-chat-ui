@@ -1,6 +1,6 @@
 export default function SearchBar() {
   return (
-    <div className="flex justify-center px-4">
+    <div className="flex justify-center">
       <label className="relative block grow">
         <span className="sr-only">Search</span>
         <span className="absolute inset-y-0 left-0 flex items-center pl-2">
