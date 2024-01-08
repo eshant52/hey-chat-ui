@@ -1,8 +1,14 @@
-import ChatListLayout from "./ChatListLayout";
+import NavsContentLayout from "./NavsContentLayout";
 import NavLayout from "./NavLayout";
 import ChatLayout from "./ChatLayout";
 
+import { useLoaderData } from 'react-router-dom';
+
 export default function AppLayout() {
+  const {chatList} = useLoaderData();
+
+  console.log(chatList);
+
   const showChat = false;
   return (
     <div className="flex">
@@ -10,7 +16,7 @@ export default function AppLayout() {
         <NavLayout />
       </div>
       <aside className="basis-96">
-        <ChatListLayout />
+        <NavsContentLayout chatList={chatList} />
       </aside>
       <div className="grow">
         {showChat ? (

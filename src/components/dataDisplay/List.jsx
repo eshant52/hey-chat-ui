@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 export function ListView({ children, className, style }) {
+
   return (
     <ul style={style} className={`${className || ""}`}>
       {children}
@@ -7,9 +8,9 @@ export function ListView({ children, className, style }) {
   );
 }
 
-export function ListContent({ children, key, className }) {
+export function ListContent({children, className }) {
   return (
-    <li key={key} className={className || ""}>
+    <li className={className || ""}>
       {children}
     </li>
   );

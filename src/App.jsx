@@ -1,28 +1,44 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import './App.css'
-import AppLayout from './layouts/AppLayout';
-import PageNotFound from './pages/error/PageNotFound';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import "./App.css";
+import AppLayout from "@layouts/AppLayout";
+import PageNotFound from "@pages/error/PageNotFound";
+import ChatLayout from "@layouts/ChatLayout";
+import { loadChatList } from "@layouts/NavsContentLayout";
 
 function App() {
-
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: <div className="antialiased text-9xl">home page</div>,
+      element: <h1>Home</h1>,
       errorElement: <PageNotFound />,
     },
     {
-      path: 'chat',
-      element: <AppLayout />
-    }
+      path: "login",
+      element: <h1>login</h1>,
+    },
+    {
+      path: "signup",
+      element: <h1>signup</h1>,
+    },
+    {
+      path: "chats",
+      element: <AppLayout />,
+      loader: loadChatList,
+      children: [
+        {
+          path: "u/:id",
+          element: <ChatLayout />,
+        },
+      ],
+    },
   ]);
 
   return (
     <>
-      <RouterProvider router={routes}/>
+      <RouterProvider router={routes} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
