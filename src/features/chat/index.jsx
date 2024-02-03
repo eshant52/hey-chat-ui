@@ -1,9 +1,4 @@
-import Footer from "./components/footer";
-import Header from "./components/header";
-import ChatView from "./components/ChatView";
+export {default as Footer} from "./components/footer";
+export {default as  Header} from "./components/Header";
+export {default as ChatView} from "./components/ChatView";
 
-export {
-  Footer,
-  Header,
-  ChatView,
-}

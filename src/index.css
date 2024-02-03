@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+  .header-height {
+    height: 4rem;
+    min-height: 4rem;
+  }
+
+  .footer-height {
+    height: 4rem;
+    min-height: 4rem;
+  }
+
+  .bg-topography {
+    background-image: url('/src/assets/background/topography.svg');
+  }
+}

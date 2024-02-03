@@ -2,15 +2,15 @@
 import Avatar from "@components/dataDisplay/Avatar";
 import { MoreVert } from "@mui/icons-material";
 
-export default function Header({ dp }) {
+export default function Header({dp, className, ...props}) {
   return (
-    <header className="flex bg-slate-300 px-3 py-2.5">
+    <header className={`flex items-center ${className || ""}`} {...props}>
       <div className="pl-3 pr-5">
-        <Avatar src={dp} alt="Eshant Sonune" className="bg-slate-50 p-1" />
+        <Avatar src={dp} alt="Eshant Sonune" className="bg-slate-100 p-1 size-10" />
       </div>
       <div className="flex grow flex-col justify-between">
-        <h1 className="text-md font-semibold text-black">Eshant Sonune</h1>
-        <span className="text-sm">online</span>
+        <h1 className="text-md font-semibold text-font-primary">Eshant Sonune</h1>
+        <span className="text-xs">online</span>
       </div>
       <div className="flex items-center justify-center">
         <MoreVert />

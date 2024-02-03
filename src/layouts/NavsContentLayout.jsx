@@ -1,47 +1,30 @@
 /* eslint-disable react/prop-types */
+import Spinner from "@components/Spinner";
 import SearchBar from "@components/input/SearchBar";
-import Card from "@components/dataDisplay/ChatCard";
-import { ListView, ListContent } from "@components/dataDisplay/List";
+import { Suspense, lazy } from "react";
+const ChatList = lazy(()=>import("@features/chat/components/ChatList"));
 
-import { Link } from "react-router-dom";
-import { getChatList } from "@data/index";
-
-export async function loadChatList() {
-  const chatList = await getChatList();
-  return {chatList};
-}
-
-export default function NavsContentLayout({chatList}) {
-
-  const chatListComponent = chatList.map((chat) => (
-    <ListContent key={chat.id}>
-      <Link to={`chats/${chat.id}`}>
-      <Card
-        name={chat.name}
-        date={chat.time}
-        recentText={chat.metaText}
-        muted={chat.ismuted}
-        blocked={chat.isblocked}
-        read={chat.isread}
-      />
-      </Link>
-    </ListContent>
-  ));
-
+export default function NavsContentLayout({setChatId}) {
   return (
-    <div className="flex h-screen flex-col">
-      <header className="">
-        <div className="bg-white py-4 pl-5">
-          <span className="text-xl font-bold">Chats</span>
+    <div className="flex h-screen flex-col divide-y-2 divide-accent1">
+      <header className="flex flex-col bg-secondary space-y-4">
+        <div className="flex items-center pt-4  pl-5 bg-secondary">
+          <span className="text-xl font-bold text-font-primary">Chats</span>
         </div>
-        <div className="px-4 py-3">
+        <div className="px-4 pb-4 bg-secondary">
           <SearchBar />
         </div>
       </header>
-      <main className="flex-1 overflow-y-scroll">
-        <ListView >
-          {chatListComponent}
-        </ListView>
+      <main className="flex-1 overflow-y-scroll bg-primary">
+        <Suspense
+          fallback={
+            <div className="flex flex-col items-center justify-center space-x-2 py-4">
+              <Spinner />
+            </div>
+          }
+        >
+          <ChatList setId={setChatId}/>
+        </Suspense>
       </main>
     </div>
   );
